@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.recipe_details.RecipeDetailsActivity"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="2:1.1"
+            android:background="@color/colorBlack"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_arrow_back"/>
+
+        <View
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_image"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="2:0.2"
+            android:background="@drawable/shape_rounded_corner_toolbar"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_image"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            tools:text="Recipe Name Or Title"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:isIndicator="true"
+            android:progressTint="@color/colorSecondary"
+            tools:rating="3"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp"
+            android:max="5"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"/>
+
+        <TextView
+            android:id="@+id/tv_avg_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ratingBar"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar"
+            app:layout_constraintStart_toEndOf="@id/ratingBar"
+            android:layout_marginStart="23dp"
+            android:textSize="13sp"
+            android:textColor="@color/colorSecondary"
+            tools:text="4.5"/>
+
+        <TextView
+            android:id="@+id/tv_no_of_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ratingBar"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar"
+            app:layout_constraintStart_toEndOf="@id/tv_avg_rating"
+            android:layout_marginStart="10dp"
+            android:textSize="13sp"
+            android:textColor="@color/textGrey"
+            tools:text="(150 reviews)"/>
+
+        <TextView
+            android:id="@+id/tv_cooking_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ratingBar"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar"
+            app:layout_constraintEnd_toEndOf="@id/tv_name"
+            android:layout_marginStart="10dp"
+            android:textSize="13sp"
+            android:textColor="@color/textGrey"
+            tools:text="45 Min"
+            android:drawablePadding="8dp"
+            app:drawableStartCompat="@drawable/ic_cooking_time" />
+
+        <TextView
+            android:id="@+id/tvi_ingredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorSecondary"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="@string/ingredients"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_ingredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvi_ingredients"
+            android:layout_marginTop="10dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"/>
+
+        <TextView
+            android:id="@+id/tvi_directions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/rv_ingredients"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorSecondary"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="@string/directions"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_directions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvi_directions"
+            android:layout_marginTop="10dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>
