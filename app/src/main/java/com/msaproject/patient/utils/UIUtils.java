@@ -50,17 +50,4 @@ public class UIUtils {
         }
         return displayMetrics;
     }
-
-    // Method to ellisize TextView to just it's constrained bounds (no maxLines attribute given)
-    public static void ellipsizeTextViewToBounds(@NonNull TextView tvDesc){
-        tvDesc.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                tvDesc.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                int noOfLinesVisible = tvDesc.getHeight() / tvDesc.getLineHeight();
-                tvDesc.setMaxLines(noOfLinesVisible);
-                tvDesc.setEllipsize(TextUtils.TruncateAt.END);
-            }
-        });
-    }
 }
