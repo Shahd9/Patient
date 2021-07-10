@@ -2,7 +2,11 @@ package com.msaproject.patient.network;
 
 public class Endpoints {
 
-    public static final String BASE_URL = "";
+    public static final String BASE_URL = "https://us-central1-mimetic-pursuit-318107.cloudfunctions.net";
+
+    // Recommendation API
+    public static final String RECOMMENDATION_API = "/recommend_api";
+
 
     // Collections
     public static String COLLECTION_STATICS = "Statics";
